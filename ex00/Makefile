@@ -7,7 +7,7 @@ CC 		= c++
 CFLAGS 	= -MP -MMD -I$(SRC_DIR) -Wall -Wextra -Werror -Wpedantic -g -std=c++98
 SHELL	= /bin/sh
 
-SRCS	= main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS	= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp
 
 all: $(NAME)
 
