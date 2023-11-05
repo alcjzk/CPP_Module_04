@@ -3,7 +3,7 @@
 
 Dog::Dog() : Animal("Dog")
 {
-    std::cout << "Dog default constructor calle\n";
+    std::cout << "Dog default constructor called\n";
 }
 
 Dog::Dog(const Dog& other) : Animal(other._type)

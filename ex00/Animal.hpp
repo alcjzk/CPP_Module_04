@@ -7,7 +7,7 @@ class Animal {
     public:
         Animal(std::string type = "");
         Animal(const Animal& other);
-        ~Animal();
+        virtual ~Animal();
     
         Animal& operator=(const Animal& other);
 
