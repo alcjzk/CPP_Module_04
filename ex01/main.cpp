@@ -5,10 +5,10 @@
 #include "WrongCat.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 int main()
 {
-    std::cout << sizeof(void);
     {
         std::cout << "<< Animal >>\n";
         Animal animal1 = Animal();
@@ -38,6 +38,11 @@ int main()
         Dog dog1 = Dog();
         Dog dog2 = Dog(dog1);
         dog2 = dog1;
+    }
+    {
+        std::cout << "\n<< Brain >>\n";
+        Brain brain1 = Brain();
+        Brain brain2 = Brain(brain1); // Copy constructor uses copy assignment
     }
 
     {
