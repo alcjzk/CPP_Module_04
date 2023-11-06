@@ -36,3 +36,8 @@ void Dog::makeSound() const
 {
     std::cout << "Bark!\n";
 }
+
+Brain& Dog::brain() const
+{
+    return *_brain;
+}

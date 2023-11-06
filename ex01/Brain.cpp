@@ -28,3 +28,13 @@ Brain::~Brain()
 {
     std::cout << "Brain destructor called\n";
 }
+
+void Brain::firstIdea(std::string idea)
+{
+    _ideas[0] = idea;
+}
+
+const std::string& Brain::firstIdea() const
+{
+    return _ideas[0];
+}

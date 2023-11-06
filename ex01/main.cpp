@@ -72,5 +72,37 @@ int main()
         delete wrong_meta;
         delete wrong_cat;
     }
+    {
+        Animal* animals[6];
+    
+        for (int i = 0; i < 3; i++)
+        {
+            animals[i] = new Cat();
+        }
+        for (int i = 3; i < 6; i++)
+        {
+            animals[i] = new Dog();
+        }
+        
+        Cat& cat1 = dynamic_cast<Cat&>(*animals[0]);
+        Cat& cat2 = dynamic_cast<Cat&>(*animals[1]);
+        cat1.brain().firstIdea("Food");
+        cat2.brain().firstIdea("Play");
+
+        std::cout << cat1.brain().firstIdea() << '\n';
+        std::cout << cat2.brain().firstIdea() << '\n';
+        std::cout << &cat1.brain() << '\n';
+        std::cout << &cat2.brain() << '\n';
+        cat1 = cat2;
+        std::cout << cat1.brain().firstIdea() << '\n';
+        std::cout << cat2.brain().firstIdea() << '\n';
+        std::cout << &cat1.brain() << '\n';
+        std::cout << &cat2.brain() << '\n';
+
+        for (int i = 0; i < 6; i++)
+        {
+            delete animals[i];
+        }
+    }
     return EXIT_SUCCESS;
 }
