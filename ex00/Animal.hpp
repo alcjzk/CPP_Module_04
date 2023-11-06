@@ -5,7 +5,7 @@
 
 class Animal {
     public:
-        Animal(std::string type = "");
+        Animal(std::string type = "Animal");
         Animal(const Animal& other);
         virtual ~Animal();
     

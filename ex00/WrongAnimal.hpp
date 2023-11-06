@@ -6,7 +6,7 @@
 class WrongAnimal
 {
     public:
-        WrongAnimal(std::string type = "");
+        WrongAnimal(std::string type = "WrongAnimal");
         WrongAnimal(const WrongAnimal& other);
         virtual ~WrongAnimal();
 
