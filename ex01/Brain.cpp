@@ -3,7 +3,7 @@
 
 Brain::Brain()
 {
-    std::cout << "Brian default constructor called\n";
+    std::cout << "Brain default constructor called\n";
 }
 
 Brain::Brain(const Brain& other)
