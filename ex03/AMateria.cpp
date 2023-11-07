@@ -8,9 +8,6 @@ AMateria::~AMateria() {}
 
 AMateria& AMateria::operator=(const AMateria& other)
 {
-    if (this == &other)
-        return *this;
-    _type = other._type;
     return *this;
 }
 
