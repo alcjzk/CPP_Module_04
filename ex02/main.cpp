@@ -10,12 +10,6 @@
 int main()
 {
     {
-        std::cout << "<< Animal >>\n";
-        Animal animal1 = Animal();
-        Animal animal2 = Animal(animal1);
-        animal2 = animal1;
-    }
-    {
         std::cout << "\n<< WrongAnimal >>\n";
         WrongAnimal animal1 = WrongAnimal();
         WrongAnimal animal2 = WrongAnimal(animal1);
@@ -47,26 +41,22 @@ int main()
 
     {
         std::cout << "\n << Subject tests >>\n";
-        const Animal* meta = new Animal();
         const Animal* cat = new Dog();
         const Animal* dog = new Cat();
         const WrongAnimal* wrong_meta = new WrongAnimal();
         const WrongAnimal* wrong_cat = new WrongCat();
 
         std::cout << "-- types --\n";
-        std::cout << "meta: " << meta->getType() << '\n';
         std::cout << "cat: " << cat->getType() << '\n';
         std::cout << "dog: " << dog->getType() << '\n';
         std::cout << "wrong_meta: " << wrong_meta->getType() << '\n';
         std::cout << "wrong_cat: " << wrong_cat->getType() << '\n';
         std::cout << "-- makeSound --\n";
-        std::cout << "meta: "; ;meta->makeSound();
         std::cout << "cat: "; cat->makeSound();
         std::cout << "dog: "; dog->makeSound();
         std::cout << "wrong_meta: "; wrong_meta->makeSound();
         std::cout << "wrong_cat: "; wrong_cat->makeSound();
         std::cout << "-- destructors --\n";
-        delete meta;
         delete cat;
         delete dog;
         delete wrong_meta;
