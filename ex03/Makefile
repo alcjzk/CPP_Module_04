@@ -4,7 +4,7 @@ OBJ_DIR	= ./obj
 SRC_DIR = .
 
 CC 		= c++
-CFLAGS 	= -MP -MMD -I$(SRC_DIR) -Wall -Wextra -Werror -Wpedantic -g -std=c++98
+CFLAGS 	= -MP -MMD -I$(SRC_DIR) -Wall -Wextra -Werror -Wpedantic -g -std=c++98 -Wno-unused-parameter
 SHELL	= /bin/sh
 
 SRCS	= main.cpp AMateria.cpp
@@ -30,13 +30,18 @@ $(NAME): $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 # Add the debugging tool entitlement when building on OS X
 ifneq ($(OS),Windows_NT)
 ifeq ($(shell uname -s),Darwin)
+	@make osx_debug_codesign
+endif
+endif
+
+OSX_ENTITLEMENTS_FILE = $(OBJ_DIR)/tmp.entitlements
+$(OSX_ENTITLEMENTS_FILE):
 	/usr/libexec/PlistBuddy -c \
-	"Add :com.apple.security.get-task-allow bool true" \
-	tmp.entitlements
-	codesign -s - -f --entitlements tmp.entitlements ./$(NAME)
-	rm -rf tmp.entitlements
-endif
-endif
+		"Add :com.apple.security.get-task-allow bool true" \
+		$@
+
+osx_debug_codesign: $(OSX_ENTITLEMENTS_FILE)
+	codesign -s - -f --entitlements $< ./$(NAME)
 
 $(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
@@ -44,7 +49,7 @@ $(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 $(OBJ_DIR):
 	mkdir -p $@
 
-.PHONY: all leaks re clean fclean run
+.PHONY: all leaks re clean fclean run osx_debug_codesign
 
 vpath %.cpp $(SRC_DIR)
 -include $(SRCS:%.cpp=$(OBJ_DIR)/%.d)
