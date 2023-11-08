@@ -7,7 +7,7 @@ CC 		= c++
 CFLAGS 	= -MP -MMD -I$(SRC_DIR) -Wall -Wextra -Werror -Wpedantic -g -std=c++98 -Wno-unused-parameter
 SHELL	= /bin/sh
 
-SRCS	= main.cpp AMateria.cpp Ice.cpp Cure.cpp
+SRCS	= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
 
 all: $(NAME)
 
