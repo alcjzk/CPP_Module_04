@@ -1,17 +1,14 @@
 #include <iostream>
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria("Ice") {}
+Ice::Ice() : AMateria("ice") {}
 
-Ice::Ice(const Ice& other) : AMateria("Ice") {}
+Ice::Ice(const Ice& other) : AMateria("ice") {}
 
 Ice::~Ice() {}
 
 Ice& Ice::operator=(const Ice& other)
 {
-    if (this == &other)
-        return *this;
-    AMateria::operator=(other);
     return *this;
 }
 
