@@ -3,7 +3,7 @@
 
 Ice::Ice() : AMateria("ice") {}
 
-Ice::Ice(const Ice& other) : AMateria("ice") {}
+Ice::Ice(const Ice& other) : AMateria(other) {}
 
 Ice::~Ice() {}
 
