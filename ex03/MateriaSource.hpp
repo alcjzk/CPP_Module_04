@@ -16,7 +16,7 @@ class MateriaSource : public IMateriaSource
         virtual void        learnMateria(AMateria* materia);
         virtual AMateria*   createMateria(const std::string& type);
 
-    public:
+    private:
         static const size_t _materias_max = 4;
         AMateria*           _materias[_materias_max];
 };
