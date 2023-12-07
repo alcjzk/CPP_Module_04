@@ -9,7 +9,7 @@ Cat::Cat() :
 }
 
 Cat::Cat(const Cat& other) :
-    Animal(other._type),
+    Animal(other),
     _brain(new Brain(*other._brain))
 {
     std::cout << "Cat copy constructor called\n";
