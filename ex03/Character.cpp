@@ -2,7 +2,9 @@
 
 Character::Character(std::string name) : _materias(), _name(name) {}
 
-Character::Character(const Character& other) : _name(other._name)
+Character::Character(const Character& other)
+:   _materias(),
+    _name(other._name)
 {
     *this = other;
 }
@@ -15,14 +17,14 @@ Character::~Character()
     }
 }
 
-Character&  Character::operator=(const Character& other)
+Character& Character::operator=(const Character& other)
 {
     if (this == &other)
         return *this;
     for (size_t i = 0; _materias_max < 4; i++)
     {
         delete _materias[i];
-        _materias[i] = other._materias[i];
+        _materias[i] = other._materias[i] ? other._materias[i]->clone() : NULL;
     }
     return *this;
 }

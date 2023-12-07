@@ -3,6 +3,7 @@
 MateriaSource::MateriaSource() : _materias() {}
 
 MateriaSource::MateriaSource(const MateriaSource& other)
+:   _materias()
 {
     *this = other;
 }
@@ -22,7 +23,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
     for (size_t i = 0; i < _materias_max; i++)
     {
         delete _materias[i];
-        _materias[i] = other._materias[i];
+        _materias[i] = other._materias[i] ? other._materias[i]->clone() : NULL;
     }
     return *this;
 }
