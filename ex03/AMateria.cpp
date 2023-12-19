@@ -6,7 +6,7 @@ AMateria::AMateria(const AMateria& other) : _type(other._type) {}
 
 AMateria::~AMateria() {}
 
-AMateria& AMateria::operator=(const AMateria& other)
+AMateria& AMateria::operator=(const AMateria&)
 {
     return *this;
 }
@@ -16,4 +16,4 @@ const std::string& AMateria::getType() const
     return _type;
 }
 
-void AMateria::use(ICharacter& target) {}
+void AMateria::use(ICharacter&) {}

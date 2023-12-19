@@ -7,7 +7,7 @@ Cure::Cure(const Cure& other) : AMateria(other) {}
 
 Cure::~Cure() {}
 
-Cure& Cure::operator=(const Cure& other)
+Cure& Cure::operator=(const Cure&)
 {
     return *this;
 }
