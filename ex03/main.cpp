@@ -40,7 +40,7 @@ int main()
         // Cloning a materia returns a new instance of the same type
         AMateria* cure = new Ice();
 
-        AMateria* cure_clone = ice->clone();
+        AMateria* cure_clone = cure->clone();
         assert(cure != cure_clone); // Distinct instance
         assert(cure->getType() == cure_clone->getType()); // Same type
 
@@ -48,5 +48,14 @@ int main()
         delete cure_clone;
     }
 
+    {
+        Character character1, character2;
+
+        std::cout << "Using unexisting materia does nothing\n";
+        character1.use(-1, character2); // Out of bounds
+        character1.use(4, character2); // Out of bounds
+        character1.use(0, character2); // No materia
+        std::cout << "--\n";
+    }
     return EXIT_SUCCESS;
 }
